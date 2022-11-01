@@ -5,6 +5,12 @@ frameworkVersion: '>=3'
 plugins:
   - serverless-plugin-typescript
 
+package:
+  individually: true
+  patterns:
+    - '!dist/**'
+    - "**/*.db"
+
 provider:
   name: aws
   runtime: nodejs16.x
@@ -13,6 +19,8 @@ provider:
 functions:
   index:
     handler: src/index.lambdaHandler
+    environment:
+      DATABASE_URL: file:./dev.db
     events:
       - http:
           method: ANY
@@ -20,3 +28,10 @@ functions:
       - http:
           method: ANY
           path: '{proxy+}'
+    package:
+      # see https://github.com/serverless/serverless-plugin-typescript/issues/170#issuecomment-1132731263
+      patterns:
+        - '!node_modules/.prisma/client/libquery_engine-*'
+        - 'node_modules/.prisma/client/libquery_engine-rhel-openssl-*'
+        - '!node_modules/prisma/libquery_engine-*'
+        - '!node_modules/@prisma/engines/**'
