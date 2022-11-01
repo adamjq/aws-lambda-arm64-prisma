@@ -1,0 +1,26 @@
+{
+  "name": "aws-lambda-arm64-prisma",
+  "version": "1.0.0",
+  "description": "Minimal reproduction to run Prisma on AWS Lambda with arm64 architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamjq/aws-lambda-arm64-prisma.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamjq/aws-lambda-arm64-prisma/issues"
+  },
+  "homepage": "https://github.com/adamjq/aws-lambda-arm64-prisma#readme",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.108",
+    "serverless": "^3.23.0",
+    "serverless-plugin-typescript": "^2.1.4",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {}
+}

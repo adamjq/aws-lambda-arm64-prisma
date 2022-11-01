@@ -1,0 +1,22 @@
+service: aws-lambda-arm64-prisma
+
+frameworkVersion: '>=3'
+
+plugins:
+  - serverless-plugin-typescript
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+
+functions:
+  index:
+    handler: src/index.lambdaHandler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
