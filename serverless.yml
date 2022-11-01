@@ -14,6 +14,7 @@ package:
 provider:
   name: aws
   runtime: nodejs16.x
+  architecture: arm64
   region: us-east-1
 
 functions:
@@ -32,6 +33,6 @@ functions:
       # see https://github.com/serverless/serverless-plugin-typescript/issues/170#issuecomment-1132731263
       patterns:
         - '!node_modules/.prisma/client/libquery_engine-*'
-        - 'node_modules/.prisma/client/libquery_engine-rhel-openssl-*'
+        - 'node_modules/.prisma/client/libquery_engine-linux-arm64-*' # include arm64 binary
         - '!node_modules/prisma/libquery_engine-*'
         - '!node_modules/@prisma/engines/**'
